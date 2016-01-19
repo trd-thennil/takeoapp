@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.trd.takeoapp</id>
+    <name>takeoapp</name>
+    <version>1.0</version>
+    <publisher>macmini</publisher>
+    <url>http://timeriverd.com/</url>
+    <description>undefined</description>
+    <copyright>2016 by macmini</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>3081963f-4e37-4c1c-9777-76a6b264f833</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest android:versionCode="1" android:versionName="1.0">
+            <supports-screens android:anyDensity="false"/>
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.CAMERA"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="com.android.vending.BILLING"/>
+            <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+            <uses-permission android:name="android.permission.GET_TASKS"/>
+            <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23"/>
+            <application android:hardwareAccelerated="true" android:largeHeap="true">
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/app_name"
+                    android:launchMode="singleInstance"
+                    android:name=".VideoPlayerActivity"
+                    android:screenOrientation="portrait" android:theme="@style/Theme.Titanium">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                </activity>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:launchMode="singleInstance"
+                    android:name="org.appcelerator.titanium.TiActivity" android:screenOrientation="portrait"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:launchMode="singleInstance"
+                    android:name="org.appcelerator.titanium.TiTranslucentActivity"
+                    android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent"/>
+                <activity android:configChanges="screenSize"
+                    android:launchMode="singleInstance"
+                    android:name="ti.modules.titanium.ui.android.TiPreferencesActivity" android:screenOrientation="portrait"/>
+            </application>
+        </manifest>
+    </android>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">true</target>
+        <target device="windows">false</target>
+    </deployment-targets>
+    <sdk-version>5.1.1.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">569d90b9261599d902e8d755</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">osOlJ8h8WumA98pfj62Y89o2Q0bc2ZV5</property>
+    <property name="acs-oauth-key-development" type="string">VHye057dqZSPcn6mtBT6spWNJMOPgbZT</property>
+    <property name="acs-api-key-development" type="string">67Ll5GqBzGH1KrbyVHhwShr1uRthEfwr</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">kevDjsQxUYpDe6Mdtz</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">NVePxS4wgdOc5GTNCeJahCBlS26qiN35</property>
+    <property name="acs-oauth-key-production" type="string">NncVjMQMxufPtXRKiMI2VbCn93KTENHU</property>
+    <property name="acs-api-key-production" type="string">ITeqeqR3kzplhUQQoDJKVYmJFCtqgXwJ</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">Ktn7Z0gD06gVFq6uOl</property>
+    <property name="appc-org-id" type="string">100004509</property>
+    <property name="appc-creator-user-id" type="string">3333a9a7-79ec-458c-abab-346426bfb4a0</property>
+</ti:app>
