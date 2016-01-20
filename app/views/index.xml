@@ -1,5 +1,24 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+	<Window class="container" id="container" title="ホーム（レッスンリスト）">
+		<ListView id="lesson_list">
+			<Templates>
+				<ItemTemplate name="lessonlist" class="template">
+					<View bindId="lesson_listtype" id="lesson_listtype" onClick="select_less">
+						<ImageView bind id="arrow_img"/>
+						<Label bindId="lsn_title">Lesson Name</Label>
+					</View>
+				</ItemTemplate>
+				
+				<!-- <ItemTemplate name="lessonlist_cont" class="template">
+					<View bindId="lesson_listtype" id="lesson_listtype" onClick="select_less">
+						<ImageView bind id="arrow_img"/>
+						<Label bindId="lesson_cat">Lesson Name</Label>
+					</View>
+				</ItemTemplate> -->
+				<ItemTemplate name="empty" class="template">
+                   <Label id="empty" text="No Contents"></Label>
+                </ItemTemplate>
+			</Templates>
+		</ListView>
+	</Window> 
 </Alloy>

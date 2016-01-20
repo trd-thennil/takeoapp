@@ -2,14 +2,24 @@
 	backgroundColor:"white"
 }
 
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000"
+".template": {
+	layout: "composite",
+	backgroundColor: "transparent",
+	height: 50
+}
+"#lesson_list": {
+	backgroundColor:"#928B8A"
+}
+"#lesson_listtype":{
+	layout: "horizontal",
+	borderRadius: 5,
+	top: 5,
+	bottom: 5 
+}
+"#arrow_img": {
+	image: "/images/arrow_img.png",
+	height: 20,
+	width: 20,
+	right: 5
 }
 
-"#label": {
-	font: {
-		fontSize: 12
-	}
-}
