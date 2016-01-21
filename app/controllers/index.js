@@ -1,3 +1,7 @@
+var args = arguments[0] || {};
+
+args.parentid = 0;
+
 var lessons = Alloy.createCollection('lesson');
 var videos = Alloy.createCollection('video_lessons');
 
@@ -36,13 +40,17 @@ var lsname = [
 var vid_data = [
 	{
 		"video_id" : 1,
-		"video_data":"/short_vid.mp4"
+		"video_data":"/waku.mp4"
 	},
 	{
 		"video_id" : 2,
-		"video_data":"/english1.mp4"
+		"video_data":"/waku2.mp4"
 	},
 ];
+
+Ti.App.addEventListener("repopulate", function(parentid) {
+	shw_lessons(parentid);
+});
 //static save list of lessons (temp)
 function savelesson(){
 	lessons.fetch({query: 'select * from '+ lessons.config.adapter.collection_name});
@@ -118,25 +126,40 @@ function shw_lessons(parentid){
 	}
 }
 savelesson();
-shw_lessons(0);
+shw_lessons(args.parentid);
 history.push([0,""]);
 
 function select_less(e){
+	$.container.title = "単語か会話を選択してください";
 	var section = $.lesson_list.sections[0];
     var lessons = section.getItemAt(e.itemIndex);
     var vid_id = lessons.lesson_listtype.video_id;
     var lsn_sub = lessons.lesson_listtype.lsn_id;
+    
+    var play_video;
+	
     if (vid_id != 0 ){
-    	
-    }
+    	videos.fetch({query: 'select * from '+ videos.config.adapter.collection_name + ' where video_id = '+ vid_id});
+    	var args;
+    	for (var vd=0 ; vd < videos.length; vd++){
+    		var e = JSON.parse(JSON.stringify(videos.at(vd)));
+    		args = {
+    			parent_id : lsn_sub,
+				video_data : e.video_data
+			};
+			
+		console.log(args.video_data);
+		var mediaview = Alloy.createController("media", args).getView();
+		mediaview.open();
+    	}
+    }else{
     shw_lessons(lsn_sub);
+    }
     history.push([lsn_sub,""]);
     
 }
 $.container.addEventListener('swipe', function(e){
 	if (e.direction == "right" && history.length > 1) {
-        
-        
         
         history.length = history.length-1;
         if(history.length<=0){

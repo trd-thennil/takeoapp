@@ -1,4 +1,20 @@
 
 ".container" : {
-  
+	backgroundColor: "white"
+}
+
+"#video_cont" : {
+	layout: "composite",
+	backgroundColor:"#4a4",
+	contentHeight: "100%",
+	contentWidth:"100%"
+}
+
+"#vid_media" : {
+	autoplay : false,
+	fullscreen : true,
+	mediaControlStyle : Titanium.Media.VIDEO_CONTROL_DEFAULT,
+    scalingMode : Titanium.Media.VIDEO_SCALING_ASPECT_FIT,
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.SIZE,
 }
