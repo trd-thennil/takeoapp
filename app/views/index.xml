@@ -1,5 +1,5 @@
 <Alloy>
-	<Window class="container" id="container" title="ホーム（レッスンリスト" fullscreen="false" exitOnClose="true" modal="true">
+	<Window class="container" id="container" title="ホーム（レッスンリスト" fullscreen="true">
 		<ListView id="lesson_list">
 			<Templates>
 				<ItemTemplate name="lessonlist" class="template">

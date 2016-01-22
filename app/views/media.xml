@@ -1,8 +1,8 @@
 <Alloy>
 	<Window class="container">
-		<ScrollableView id="video_cont" showPagingControl="true">
+		<!-- <ScrollableView id="video_cont" showPagingControl="true"> -->
 			<VideoPlayer id="vid_media" ns="Ti.Media" ></VideoPlayer>
-		</ScrollableView>
+		<!-- </ScrollableView> -->
 	</Window>
 </Alloy>
 
