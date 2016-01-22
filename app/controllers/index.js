@@ -48,8 +48,8 @@ var vid_data = [
 	},
 ];
 
-Ti.App.addEventListener("repopulate", function(parentid) {
-	shw_lessons(parentid);
+Ti.App.addEventListener("repopulate", function(e) {
+	shw_lessons(e.parentid);
 });
 //static save list of lessons (temp)
 function savelesson(){
@@ -90,6 +90,12 @@ function savelesson(){
 
 var history = [];
 function shw_lessons(parentid){
+	if (parentid == 0){
+		$.container.title = "ホーム（レッスンリスト";
+	}else{
+		$.container.title = "単語か会話を選択してください";
+	}
+	
 	lessons.fetch({query:'select * from '+ lessons.config.adapter.collection_name+ ' where parent_id = '+ parentid});
 
 	var less_items = [];
@@ -130,7 +136,6 @@ shw_lessons(args.parentid);
 history.push([0,""]);
 
 function select_less(e){
-	$.container.title = "単語か会話を選択してください";
 	var section = $.lesson_list.sections[0];
     var lessons = section.getItemAt(e.itemIndex);
     var vid_id = lessons.lesson_listtype.video_id;
@@ -166,9 +171,22 @@ $.container.addEventListener('swipe', function(e){
 
         } else {
              shw_lessons(parseInt(history[history.length-1]));
-        
-            
+       
         }
+    }
+});
+
+$.container.addEventListener('androidback', function(e){
+	if (history.length > 1) {
+        history.length = history.length-1;
+        if(history.length <= 0){
+        	
+        } else {
+        	console.log(history[0]);
+        	shw_lessons(parseInt(history[history.length-1]));
+        }
+    }else{
+    	$.container.close();
     }
 });
 
